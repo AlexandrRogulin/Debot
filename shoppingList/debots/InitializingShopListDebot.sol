@@ -15,16 +15,16 @@ import "../interface/InterfaceAndStructs.sol";
 
 abstract contract InitializingShopListDebot is Debot {
 
-	bytes m_icon;
+    bytes m_icon;
     TvmCell m_shoppingListCode;
     TvmCell m_shoppingListData;
-	TvmCell m_shoppingListStateInit; // Shopping List contract code
+    TvmCell m_shoppingListStateInit; // Shopping List contract code
     address m_shoppingListAddress; // Shopping List contract address
-	PurchasesSummary m_summary; // Statistic summary purchase
+    PurchasesSummary m_summary; // Statistic summary purchase
     uint256 m_userPubKey; // User pubkey
-	address m_walletAddress; // User wallet address
+    address m_walletAddress; // User wallet address
 
-	uint32 INITIAL_BALANCE =  200000000; // Initial Shopping List contract balance
+    uint32 INITIAL_BALANCE =  200000000; // Initial Shopping List contract balance
 
 
     function listActionsMenu() internal virtual {}
@@ -41,7 +41,7 @@ abstract contract InitializingShopListDebot is Debot {
         Terminal.input(tvm.functionId(savePublicKey), "Please enter your public key", false);
     }
 
-	function getDebotInfo() public functionID(0xDEB) override view returns(
+    function getDebotInfo() public functionID(0xDEB) override view returns(
         string name, string version, string publisher, string key, string author,
         address support, string hello, string language, string dabi, bytes icon
     ) {
@@ -50,7 +50,7 @@ abstract contract InitializingShopListDebot is Debot {
         hello = "Hello! It's a Shopping List DeBot.";
         language = "en";
         dabi = m_debotAbi.get();
-		icon = m_icon;
+        icon = m_icon;
     }
 
     function getRequiredInterfaces() public view override returns (uint256[] interfaces) {
@@ -106,7 +106,7 @@ abstract contract InitializingShopListDebot is Debot {
         }(m_shoppingListAddress, INITIAL_BALANCE, false, 3, empty);
     }
 
-	function onErrorRepeatCredit(uint32 sdkError, uint32 exitCode) public {
+    function onErrorRepeatCredit(uint32 sdkError, uint32 exitCode) public {
         sdkError;
         exitCode;
         creditAccount(m_shoppingListAddress);
@@ -116,7 +116,7 @@ abstract contract InitializingShopListDebot is Debot {
         Sdk.getAccountType(tvm.functionId(checkIfStatusIs0), m_shoppingListAddress);
     }
 
-	function checkIfStatusIs0(int8 acc_type) public {
+    function checkIfStatusIs0(int8 acc_type) public {
         if (acc_type ==  0) {
             deploy();
         } else {
@@ -168,5 +168,4 @@ abstract contract InitializingShopListDebot is Debot {
         m_summary = summary;
         listActionsMenu();
     }
-
 }

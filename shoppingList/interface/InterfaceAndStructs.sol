@@ -7,7 +7,6 @@ struct Purchase {
     uint64 dataCreated;
     bool isConfirmed;
     uint32 price;
-
 }
 
 struct PurchasesSummary {

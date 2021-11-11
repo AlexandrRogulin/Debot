@@ -4,9 +4,11 @@ pragma AbiHeader time;
 pragma AbiHeader pubkey;
 
 import "../../base/Menu.sol";
+
 import "InitializingShopListDebot.sol";
-import "../interface/InterfaceAndStructs.sol";
 import "InteractionShoppingListDebot.sol";
+
+import "../interface/InterfaceAndStructs.sol";
 
 contract FillingShoppingListDebot is InteractionShoppingListDebot {
 
