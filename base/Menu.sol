@@ -7,7 +7,9 @@ struct MenuItem {
 }
 
 interface IMenu {
+
 	function select(string title, string description, MenuItem[] items) external returns (uint32 index);
+
 }
 
 library Menu {

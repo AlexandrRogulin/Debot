@@ -48,12 +48,10 @@ library Sdk {
         address a = address.makeAddrStd(DEBOT_WC, ID);
         ISdk(a).getBalance(answerId, addr);
     }
-    // ===================================
     function getAccountType(uint32 answerId, address addr) public pure {
         address a = address.makeAddrStd(DEBOT_WC, ID);
         ISdk(a).getAccountType(answerId, addr);
     }
-    // -----------------------------------
     function getAccountCodeHash(uint32 answerId, address addr) public pure {
         address a = address.makeAddrStd(DEBOT_WC, ID);
         ISdk(a).getAccountCodeHash(answerId, addr);
@@ -148,9 +146,7 @@ library Sdk {
 contract SdkABI is ISdk {
 //account info
 function getBalance(uint32 answerId, address addr) external override returns (uint128 nanotokens) {}
-
 function getAccountType(uint32 answerId, address addr) external override returns (int8 acc_type) {}
-
 function getAccountCodeHash(uint32 answerId, address addr) external override returns (uint256 code_hash) {}
 //crypto
 function chacha20(uint32 answerId, bytes data, bytes nonce, uint256 key) external override returns (bytes output) {}
