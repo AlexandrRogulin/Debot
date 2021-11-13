@@ -5,7 +5,7 @@ pragma AbiHeader pubkey;
 
 import "InitializingShopListDebot.sol";
 
-contract InteractionShoppingListDebot is InitializingShopListDebot {
+abstract contract InteractionShoppingListDebot is InitializingShopListDebot {
 
     function menuIntro() internal returns (string) {
         string intro;
